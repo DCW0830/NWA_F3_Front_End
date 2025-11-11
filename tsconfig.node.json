@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "jsx": "react-jsx",
+        "composite": true,
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "target": "ESNext",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true
+    },
+    "include": [
+        "src/**/*"
+    ]
+}
