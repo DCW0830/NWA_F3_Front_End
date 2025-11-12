@@ -1,4 +1,5 @@
 #root {
-  max-width: 1280px;
-  padding: 32px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }

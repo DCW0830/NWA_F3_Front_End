@@ -1,185 +1,152 @@
-// import { Link } from 'react-router-dom';
-
-// const styles = {
-//   nav: {
-//     display: 'flex',
-//     gap: '1rem',
-//     background: '#f0f0f0',
-//     padding: '1rem',
-//   },
-//   link: {
-//     textDecoration: 'none',
-//     color: 'black',
-//   },
-// };
-
-// export const NavBar = () => {
-//   return (
-//     <nav style={styles.nav}>
-//       <Link to="/" style={styles.link}>
-//         Home
-//       </Link>
-//       <Link to="/about" style={styles.link}>
-//         About
-//       </Link>
-//       <Link to="/contact" style={styles.link}>
-//         Contact
-//       </Link>
-//     </nav>
-//   );
-// };
-
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
+// src/components/NavBar.tsx
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import {
+  FlexBox,
+  StyledAppBar,
+  StyledToolbar,
+  LogoBox,
+  BrandText,
+  NavButton,
+  PaxButton,
+  MobileMenuButton,
+  colors,
+} from './styled';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = [
+  { name: 'HOME', path: '/' },
+  { name: 'ABOUT', path: '/about' },
+  { name: 'FOR NEW GUYS', path: '/fng' },
+  { name: 'LOCATIONS', path: '/locations' },
+  {
+    name: 'PAX',
+    path: '/pax',
+    dropdown: [
+      { name: 'PAX Directory', path: '/pax/directory' },
+      { name: 'Q School', path: '/pax/qschool' },
+      { name: 'Leadership', path: '/pax/leadership' },
+    ],
+  },
+  { name: 'CONTACT', path: '/contact' },
+];
 
-export function NavBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+export const NavBar = () => {
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElPax, setAnchorElPax] = useState<null | HTMLElement>(null);
+  const [scrolled, setScrolled] = useState(false);
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  const handleOpenNavMenu = (e: React.MouseEvent<HTMLElement>) => setAnchorElNav(e.currentTarget);
+  const handleCloseNavMenu = () => setAnchorElNav(null);
+  const handleOpenPaxMenu = (e: React.MouseEvent<HTMLElement>) => setAnchorElPax(e.currentTarget);
+  const handleClosePaxMenu = () => setAnchorElPax(null);
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
+    <StyledAppBar position="sticky" className={scrolled ? 'scrolled' : ''}>
+      <StyledToolbar disableGutters>
+        <FlexBox
+          component={Link}
+          to="/"
+          sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', textDecoration: 'none', color: 'inherit' }}
+        >
+          <LogoBox>F3</LogoBox>
+          <BrandText>Northwest Arkansas</BrandText>
+        </FlexBox>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none' } }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
+        <FlexBox sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <MobileMenuButton size="large" onClick={handleOpenNavMenu}>
+            <MenuIcon />
+          </MobileMenuButton>
+          <Menu
+            anchorEl={anchorElNav}
+            open={Boolean(anchorElNav)}
+            onClose={handleCloseNavMenu}
+            sx={{ display: { xs: 'block', md: 'none' } }}
           >
-            LOGO
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
-                {page}
-              </Button>
+              <MenuItem key={page.name} onClick={handleCloseNavMenu} component={Link} to={page.path}>
+                <Typography>{page.name}</Typography>
+              </MenuItem>
             ))}
-          </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+          </Menu>
+        </FlexBox>
+
+        <Typography
+          variant="h6"
+          noWrap
+          component={Link}
+          to="/"
+          sx={{
+            mr: 2,
+            display: { xs: 'flex', md: 'none' },
+            flexGrow: 1,
+            fontWeight: 700,
+            color: 'inherit',
+            textDecoration: 'none',
+          }}
+        >
+          F3 NWA
+        </Typography>
+
+        <FlexBox sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end', gap: 0.5 }}>
+          {pages.map((page) =>
+            page.dropdown ? (
+              <FlexBox key={page.name} onMouseEnter={handleOpenPaxMenu} onMouseLeave={handleClosePaxMenu}>
+                <PaxButton endIcon={<ArrowDropDownIcon />}>{page.name}</PaxButton>
+                <Menu
+                  anchorEl={anchorElPax}
+                  open={Boolean(anchorElPax)}
+                  onClose={handleClosePaxMenu}
+                  MenuListProps={{ onMouseLeave: handleClosePaxMenu }}
+                  slotProps={{
+                    paper: {
+                      sx: {
+                        borderRadius: 0,
+                        marginTop: 0,
+                        '& .MuiList-root': { py: 0 },
+                      },
+                    },
+                  }}
+                  anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                  transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+                >
+                  {page.dropdown.map((item) => (
+                    <MenuItem
+                      key={item.name}
+                      component={Link}
+                      to={item.path}
+                      onClick={handleClosePaxMenu}
+                      sx={{
+                        py: 1.5,
+                        px: 3,
+                        fontFamily: 'Play, sans-serif',
+                        fontSize: '12px',
+                        '&:hover': { color: colors.hoverGreen },
+                      }}
+                    >
+                      {item.name}
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </FlexBox>
+            ) : (
+              <NavButton key={page.name} component={Link} to={page.path}>
+                {page.name}
+              </NavButton>
+            )
+          )}
+        </FlexBox>
+      </StyledToolbar>
+    </StyledAppBar>
   );
-}
+};
