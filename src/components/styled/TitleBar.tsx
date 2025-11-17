@@ -1,4 +1,3 @@
-// src/components/styled/TitleBar.tsx
 import { styled, Box } from '@mui/material';
 import { colors } from './colors';
 

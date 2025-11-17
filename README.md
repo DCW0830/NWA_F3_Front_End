@@ -1,6 +1,38 @@
 # F3 Northwest Arkansas Website
 
-A React-based website for F3 Northwest Arkansas fitness community.
+A modern, mobile-friendly rebuild of the [F3 Northwest Arkansas website](https://f3nwa.com) using React and TypeScript.
+
+## Project Goal
+
+Recreate the F3 NWA website with a clean, maintainable codebase that makes it easy for leadership to update content through an admin interface. This project will progress through multiple phases from static site to fully dynamic platform.
+
+## Project Phases
+
+### Phase 1: Static Website ✅ (In Progress)
+
+Building out all pages to match the current F3NWA design
+
+- Navigation with dropdown menus
+- Responsive layouts for all devices
+- Footer with social links
+- Clean, professional styling
+
+### Phase 2: Deployment (Coming Soon)
+
+Get the static site live for feedback and testing
+
+### Phase 3: Dynamic Admin Panel
+
+Add backend functionality so F3 leadership can easily manage:
+
+- Workout locations and schedules
+- Events and announcements
+- PAX directory
+- No coding knowledge required!
+
+### Phase 4: AI-Powered Features (Future)
+
+Enhance the site with smart features like workout suggestions, intelligent search, and automated content generation
 
 ## Getting Started
 
@@ -86,11 +118,17 @@ src/
 ├── components/        # Reusable UI components
 │   ├── styled/       # Styled components library
 │   ├── NavBar.tsx
+│   ├── TitleBar.tsx
+│   ├── Footer.tsx
 │   └── LayOut.tsx
 ├── pages/            # Page components
 ├── App.tsx           # Main app component
 └── main.tsx          # Entry point
 ```
+
+## Compare with Current Site
+
+Check out the [current F3 NWA website](https://f3nwa.com) to see what we're building towards. As development progresses, you can track how closely we're matching the design and functionality.
 
 ## Development
 
