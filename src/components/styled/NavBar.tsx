@@ -16,22 +16,19 @@ export const MobileMenuButton = styled(IconButton)({ color: colors.white });
 export const StyledAppBar = styled(AppBar)({
   backgroundColor: colors.navBar,
   boxShadow: 'none',
-  left: 0,
-  right: 0,
-  width: '100%',
-  padding: 0,
-  margin: 0,
   transition: 'background-color 0.3s ease',
   '&.scrolled': { backgroundColor: 'rgba(46, 59, 66, 0.8)', backdropFilter: 'blur(10px)' },
+  borderBottom: '1px gray solid',
 });
 
-export const StyledToolbar = styled(Toolbar)({
-  minHeight: '70px',
+export const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+  minHeight: '75px',
   maxWidth: '1200px',
   width: '100%',
   margin: '0 auto',
   padding: '0 2rem',
-});
+  [theme.breakpoints.up('sm')]: { minHeight: '75px' },
+}));
 
 export const NavButton = styled(Button)<ButtonProps & { to?: string }>({
   margin: '1rem 0',

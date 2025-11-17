@@ -5,6 +5,7 @@ export { Heading1, Heading2, Heading3, Heading4, BodyText, LargeText, SmallText 
 export { PrimaryButton, SecondaryButton, OutlineButton } from './Buttons';
 export { StyledCard, ImageCard, InfoCard, StyledCardContent } from './Cards';
 export { PageWrapper, MainContent, HeroSection, Overlay, HeroContent } from './Layout';
+export { TitleBarContainer, TitleBarContent, PageTitle } from './TitleBar';
 export {
   StyledAppBar,
   StyledToolbar,
