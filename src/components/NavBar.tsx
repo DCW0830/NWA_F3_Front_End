@@ -93,7 +93,7 @@ export const NavBar = () => {
           to="/"
           sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', textDecoration: 'none' }}
         >
-          <img src={logoHorizontal} alt="F3 NorthWest Arkansas" style={{ height: '50px', width: 'auto' }} />
+          <img src={logoHorizontal} alt="F3 NorthWest Arkansas" style={{ height: '45px', width: 'auto' }} />
         </FlexBox>
 
         <FlexBox sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
