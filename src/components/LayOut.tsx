@@ -1,7 +1,8 @@
-// src/components/LayOut.tsx
 import { Outlet, useLocation } from 'react-router-dom';
 import { NavBar } from './NavBar';
 import { TitleBar } from './TitleBar';
+import { Footer } from './Footer';
+import { ScrollToTop } from './ScrollToTop';
 import { PageWrapper, MainContent } from './styled';
 
 const pageTitles: Record<string, string> = {
@@ -29,6 +30,8 @@ export const LayOut = () => {
       <MainContent>
         <Outlet />
       </MainContent>
+      <Footer />
+      <ScrollToTop />
     </PageWrapper>
   );
 };
