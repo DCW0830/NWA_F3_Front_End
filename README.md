@@ -2,6 +2,8 @@
 
 A modern, mobile-friendly rebuild of the [F3 Northwest Arkansas website](https://f3nwa.com) using React and TypeScript.
 
+**🚀 [View Live Demo](https://nwa-f3-front-end.vercel.app/)**
+
 ## Project Goal
 
 Recreate the F3 NWA website with a clean, maintainable codebase that makes it easy for leadership to update content through an admin interface. This project will progress through multiple phases from static site to fully dynamic platform.
