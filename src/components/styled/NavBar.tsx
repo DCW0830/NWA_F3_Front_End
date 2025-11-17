@@ -1,5 +1,17 @@
-import { styled, AppBar, Toolbar, Box, Button, IconButton, ButtonProps } from '@mui/material';
 import { colors } from './colors';
+import {
+  styled,
+  AppBar,
+  Toolbar,
+  Box,
+  Button,
+  IconButton,
+  ButtonProps,
+  IconButtonProps,
+  TextField,
+} from '@mui/material';
+
+export const MobileMenuButton = styled(IconButton)({ color: colors.white });
 
 export const StyledAppBar = styled(AppBar)({
   backgroundColor: colors.navBar,
@@ -10,10 +22,7 @@ export const StyledAppBar = styled(AppBar)({
   padding: 0,
   margin: 0,
   transition: 'background-color 0.3s ease',
-  '&.scrolled': {
-    backgroundColor: 'rgba(46, 59, 66, 0.8)',
-    backdropFilter: 'blur(10px)',
-  },
+  '&.scrolled': { backgroundColor: 'rgba(46, 59, 66, 0.8)', backdropFilter: 'blur(10px)' },
 });
 
 export const StyledToolbar = styled(Toolbar)({
@@ -24,27 +33,7 @@ export const StyledToolbar = styled(Toolbar)({
   padding: '0 2rem',
 });
 
-export const LogoBox = styled(Box)({
-  width: 50,
-  height: 50,
-  backgroundColor: colors.primary,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  marginRight: '1rem',
-  fontWeight: 900,
-  fontSize: '1.5rem',
-});
-
-export const BrandText = styled(Box)({
-  fontWeight: 700,
-  fontSize: '1.3rem',
-  letterSpacing: '0.5px',
-});
-
-export const NavButton = styled(Button, {
-  shouldForwardProp: (prop) => prop !== 'active',
-})<ButtonProps & { active?: boolean; to?: string }>(() => ({
+export const NavButton = styled(Button)<ButtonProps & { to?: string }>({
   margin: '1rem 0',
   color: colors.white,
   display: 'block',
@@ -55,32 +44,44 @@ export const NavButton = styled(Button, {
   textTransform: 'uppercase',
   borderBottom: 'none',
   borderRadius: 0,
-  '&:hover': {
-    color: colors.hoverGreen,
-    backgroundColor: 'transparent',
-  },
-}));
+  cursor: 'pointer',
+  '&:hover': { color: colors.hoverGreen, backgroundColor: 'transparent' },
+});
 
-export const PaxButton = styled(Button)({
+export const PaxButton = styled(Box)({
   margin: '1rem 0',
   color: colors.white,
   display: 'flex',
+  alignItems: 'center',
   padding: '0 1rem',
   fontFamily: 'Play, sans-serif',
   fontSize: '12px',
   fontWeight: 400,
   textTransform: 'uppercase',
-  borderBottom: 'none',
-  borderRadius: 0,
-  '& .MuiButton-endIcon': {
-    marginLeft: '4px',
-  },
-  '&:hover': {
-    color: colors.hoverGreen,
-    backgroundColor: 'transparent',
-  },
+  cursor: 'pointer',
+  transition: 'color 0.2s',
+  '&:hover': { color: colors.hoverGreen },
+  '& svg': { marginLeft: '4px' },
 });
 
-export const MobileMenuButton = styled(IconButton)({
+export const NavIconButton = styled(IconButton)({
   color: colors.white,
+  marginLeft: '1rem',
+  '& svg': { fontSize: '18px' },
+  '&:hover': { color: colors.hoverGreen, backgroundColor: 'transparent' },
+});
+
+export const SocialIconButton = styled(IconButton)<IconButtonProps & { href?: string; target?: string }>({
+  color: colors.white,
+  marginLeft: '16px',
+  '& svg': { fontSize: '25px' },
+  '&:hover': { color: colors.hoverGreen, backgroundColor: 'transparent' },
+});
+
+export const SearchInput = styled(TextField)({
+  '& .MuiInputBase-root': { color: colors.white, fontFamily: 'Play, sans-serif', fontSize: '14px' },
+  '& .MuiOutlinedInput-notchedOutline': { borderColor: colors.white },
+  '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: colors.hoverGreen },
+  '& .Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: colors.hoverGreen },
+  '& .MuiInputBase-input': { padding: '8px 12px' },
 });

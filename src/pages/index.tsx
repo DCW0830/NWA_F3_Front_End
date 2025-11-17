@@ -1,5 +1,11 @@
-export { About } from './About';
 export { Home } from './Home';
-export { Contact } from './Contact';
-export { Locations } from './Locations';
+export { About } from './About';
 export { FNG } from './FNG';
+export { Locations } from './Locations';
+export { BackBlasts } from './paxMenuPages/BackBlasts';
+export { BackBlastsData } from './paxMenuPages/BackBlastsData';
+export { Genesis } from './paxMenuPages/Genesis';
+export { HogWild } from './paxMenuPages/HogWild';
+export { RolesDescriptions } from './paxMenuPages/RolesDescriptions';
+export { Spark } from './paxMenuPages/Spark';
+export { Contact } from './Contact';
