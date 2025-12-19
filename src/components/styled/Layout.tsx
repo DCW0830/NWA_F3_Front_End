@@ -1,5 +1,4 @@
 import { styled, Box } from '@mui/material';
-import { colors } from './colors';
 
 export const PageWrapper = styled(Box)({
   minHeight: '100vh',
@@ -9,18 +8,6 @@ export const PageWrapper = styled(Box)({
 
 export const MainContent = styled(Box)({ flex: 1 });
 
-export const HeroSection = styled(Box)({
-  minHeight: '500px',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  position: 'relative',
-  color: colors.white,
-  textAlign: 'center',
-});
-
 export const Overlay = styled(Box)({
   position: 'absolute',
   top: 0,
@@ -29,11 +16,4 @@ export const Overlay = styled(Box)({
   bottom: 0,
   backgroundColor: 'rgba(0, 0, 0, 0.5)',
   zIndex: 1,
-});
-
-export const HeroContent = styled(Box)({
-  position: 'relative',
-  zIndex: 2,
-  maxWidth: '800px',
-  padding: '0 2rem',
 });
