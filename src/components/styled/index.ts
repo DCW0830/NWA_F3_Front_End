@@ -14,7 +14,17 @@ export {
   NavIconButton,
   SocialIconButton,
   MobileMenuButton,
-  SearchInput,
+  MobileMenuContainer,
+  MobileMenuText,
+  MobileDropdown,
+  MobileMenuList,
+  MobileMenuItem,
+  MobileSubMenu,
+  MobilePaxToggle,
+  MobileSocialContainer,
+  MobileSearchForm,
+  MobileSearchInput,
+  MobileSearchButton,
 } from './NavBar';
 export {
   FooterContainer,
