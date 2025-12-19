@@ -82,3 +82,114 @@ export const SearchInput = styled(TextField)({
   '& .Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: colors.hoverGreen },
   '& .MuiInputBase-input': { padding: '8px 12px' },
 });
+
+export const MobileMenuContainer = styled(Box)({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '0.5rem',
+});
+
+export const MobileMenuText = styled(Box)({
+  color: colors.white,
+  fontFamily: 'Play',
+  fontSize: '14px',
+  fontWeight: 600,
+});
+
+export const MobileDropdown = styled(Box)({
+  backgroundColor: colors.navBar,
+  width: '100%',
+  padding: '1rem 0',
+});
+
+export const MobileMenuList = styled('ul')({
+  listStyle: 'none',
+  margin: 0,
+  padding: 0,
+});
+
+export const MobileMenuItem = styled('li')({
+  '& a': {
+    display: 'block',
+    color: colors.white,
+    textDecoration: 'none',
+    padding: '0.75rem 2rem',
+    fontFamily: 'Play',
+    fontSize: '14px',
+    '&:hover': {
+      backgroundColor: 'rgba(255,255,255,0.05)',
+    },
+  },
+});
+
+export const MobileSubMenu = styled('ul')({
+  listStyle: 'none',
+  margin: 0,
+  padding: 0,
+  backgroundColor: 'rgba(0,0,0,0.2)',
+  '& li a': {
+    paddingLeft: '3rem',
+  },
+});
+
+export const MobilePaxToggle = styled(Box)({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  color: colors.white,
+  padding: '0.75rem 2rem',
+  cursor: 'pointer',
+  fontFamily: 'Play',
+  fontSize: '14px',
+  '&:hover': {
+    backgroundColor: 'rgba(255,255,255,0.05)',
+  },
+});
+
+export const MobileSocialContainer = styled(Box)({
+  display: 'flex',
+  justifyContent: 'center',
+  gap: '1rem',
+  padding: '1rem 2rem',
+  borderTop: '1px solid rgba(255,255,255,0.1)',
+  borderBottom: '1px solid rgba(255,255,255,0.1)',
+});
+
+export const MobileSearchForm = styled('form')({
+  padding: '1rem 2rem',
+  display: 'flex',
+  gap: '0.5rem',
+});
+
+export const MobileSearchInput = styled('input')({
+  flex: 1,
+  padding: '0.5rem',
+  backgroundColor: 'rgba(255,255,255,0.1)',
+  border: '1px solid rgba(255,255,255,0.2)',
+  borderRadius: '4px',
+  color: colors.white,
+  fontFamily: 'Play',
+  fontSize: '14px',
+  '&::placeholder': {
+    color: 'rgba(255,255,255,0.5)',
+  },
+  '&:focus': {
+    outline: 'none',
+    borderColor: colors.hoverGreen,
+  },
+});
+
+export const MobileSearchButton = styled('button')({
+  backgroundColor: colors.primary,
+  border: 'none',
+  color: colors.white,
+  padding: '0.5rem 1rem',
+  borderRadius: '4px',
+  cursor: 'pointer',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  '&:hover': {
+    backgroundColor: '#b8112f',
+  },
+});
